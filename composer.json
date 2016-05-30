@@ -1,0 +1,6 @@
+{
+    "require": {
+        "overtrue/wechat": "2.*",
+        "nette/mail": "^2.3"
+    }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>我的颜值是<?php echo $facelist[0]['yanzhi'];?>分耶!测得真准!快来给我点赞吧!</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<style>
+		body{
+			font-family: "微软雅黑","黑体",sans-serif;
+		}
+		#header{
+			width: 100%;
+		}
+		body{
+			background: url(../images/bg.gif);
+		}
+		#img{
+			margin: 20px auto;
+			width: 90%;
+		}
+		#img img{
+			box-shadow: 3px 3px 20px black;
+			border: 3px dotted rgba(220,180,110,0.8);
+		}
+		footer{
+			text-align: center;
+			font-size: 12px;
+		}
+		.container{
+			border-radius: 10px;
+		}
+		
+		#footer{
+			font-size: 20px;
+		}
+		.p{
+			margin: 20px 20px;
+			font-size: 16px;
+			line-height: 1.8em;
+			border-radius: 10px;
+			padding-left: 20px;
+		}
+	</style>
+</head>
+<body>
+<div id="img">
+	<img src=".<?php echo $facelist[0]['pathname'];?>" alt="..." class="img-circle" width="100%">
+</div>
+<div>
+	<div class="bg-info container p">
+		<h3>嗨! &nbsp;<?php echo $nickname;?>!</h3> <br>
+		首先为您进行人脸检测..... <br>
+		图中检测出<?php echo count($facelist);?>个人,脸部信息分别是: <br>
+		<small>(脸部信息越清晰越靠前)</small>
+	</div>
+	<?php foreach($facelist as $k=>$v){?>
+	<div class="bg-info container p">
+		<strong>第<?php echo $k+1;?>个人:</strong> <br>
+		种族: <?php echo $v['race'];?> <br>
+		性别: <?php echo $v['gender'];?> <br>
+		年龄: <?php echo $v['age'];?>之间 <br>
+		<?php echo $v['glass'];?> <br>
+		这个微笑我给<?php echo $v['smiling'];?>分! <br>
+		<h1>颜值----(<?php echo $v['yanzhi'];?>分!)  <?php echo $v['yanzhipy'];?></h1>
+	</div>
+	<?php }?>
+	<?php if($double){?>
+	<div class="bg-info p"><strong>两位的<?php echo $zhishu;?>为:<span style="color:#d83;"><?php echo $facelist[0]['xs'];?>!&nbsp;&nbsp;<?php echo $facelist[0]['py'];?></span></strong></div>
+	<?php }?>
+</div>
+<div class="container">
+	<div class="row">
+		<p id="ganxie" style="display:none;text-align:center;">感谢您的投票!<br>想要更多赞?分享给朋友吧!<br>集齐10个赞可以偷看别人的颜值哦!!</p>
+		<div class="col-xs-2"></div>
+			<button type="button" class="btn btn-danger col-xs-3" id="zan">为他/她点赞!</button>
+			<div class="col-xs-2">(<span id="zan1"><?php echo $facelist[0]['zan'];?></span>)赞</div>
+			<button type="button" class="btn btn-danger col-xs-3" id="bishi">鄙视他/她!</button>
+			<input id="input" type="hidden" value="0">
+			<input type="hidden" id="openid" value="<?php echo $_GET['id'];?>">
+		<div class="col-xs-2"></div>
+	</div>
+</div>
+<br>
+<footer id="footer">想知道他 or 她的颜值?长按二维码关注吧! <br>还有更多实用好玩的功能哦!</footer>
+<img src="../images/WW.png" alt="" class="img-rounded" width="100%">
+<br>
+<footer>
+	技术支持:一个放羊娃
+</footer>
+</body>
+<script>
+	$(document).ready(function(){
+		$("#zan").on("click",function(){
+			$.get("server.php",{numup:1,id:<?php echo $_GET['id'];?>},function(data){
+				$("#zan1").text(data);
+			});
+		});
+
+		$("#bishi").on("click",function(){
+			$.get("server.php",{_num:1,id:<?php echo $_GET['id'];?>},function(d){
+				$("#zan1").text(d);
+			});
+		});
+	});
+	$(document).ajaxStart(function(){	
+		$("button").prop("disabled",true);
+		$("#ganxie").css("display","block");
+	});
+</script>
+</html>

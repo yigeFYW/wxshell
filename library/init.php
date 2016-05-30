@@ -1,0 +1,11 @@
+<?php 
+header('content-type:text/html;charset=utf8');
+define('ROOT',dirname(__DIR__));
+require(ROOT.'/library/config.php');
+//require(ROOT.'/library/error.class.php');
+require(ROOT.'/library/Weixin.class.php');
+require(ROOT.'/library/Mysql.class.php');
+require(ROOT.'/library/JSSDK.class.php');
+require(ROOT.'/vendor/autoload.php');
+require(ROOT.'/app/wechat.php');
+?>
