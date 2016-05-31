@@ -16,6 +16,7 @@ class Weixin{
 
 	public function accessToken(){
 		$data = json_decode(file_get_contents(ROOT."/json/access_token.json"));
+		//print_r($data);
 		if($data->pubtime < time()){
 			$appid = $this->appid;
 			$secret = $this->appsecret;
@@ -34,25 +35,7 @@ class Weixin{
 		}else{
 			$access_token = $data->access_token;
 		}
-		return $access_token;
-		/*$mysql = new Mysql();
-		$time = time();
-		$lasttime = $mysql->getRow("select * from token where id= 1;");
-		if($time > ($lasttime['lasttime']+7000)){
-			//token过期了或快过期了,去取token
-			$appid = $this->appid;
-			$secret = $this->appsecret;
-			$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$appid."&secret=".$secret;
-			$a = $this->https_request($url);
-			$strjson = json_decode($a);//json解析成对象
-			$access_token = $strjson->access_token;//获取access_token
-			$this->access_token = $access_token;
-			$data = array('ak'=>$access_token,'lasttime'=>$time);
-			$mysql->Exec('token',$data,'update','id=1');//将新token更新到数据库
-		}else{
-			//token还没过期,直接拿数据库中的token
-			$this->access_token = $lasttime['ak'];
-		}*/
+		$this->access_token = $access_token;
 	}
 
 	//HTTP请求(get和post)
@@ -193,6 +176,48 @@ class Weixin{
 		$data = $this->https_request($url);
 		$res = json_decode($data,true);
 		return $res;
+	}
+
+	//添加新客服
+	public function addcus($con){
+		$url = "https://api.weixin.qq.com/customservice/kfaccount/add?access_token=".$this->access_token;
+		$data = $this->https_request($url,$con);
+		$data = json_decode($data,true);
+		if($data['errmsg'] =="ok"){
+			return true;
+		}else{
+			return $data['errcode'];
+		}
+	}
+
+	//获取永久二维码
+	public function getticket($con){
+		if(!is_string($con)){
+			$con = "{\"action_name\": \"QR_LIMIT_SCENE\", \"action_info\": {\"scene\": {\"scene_id\": ".$con."}}}";
+		}else{
+			$con = "{\"action_name\": \"QR_LIMIT_STR_SCENE\", \"action_info\": {\"scene\": {\"scene_str\": \"".$con."\"}}}";
+		}
+		$url = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=".$this->access_token;
+		$data = $this->https_request($url,$con);
+		return json_decode($data,true);
+	}
+
+	//下载二维码到本地
+	public function geterwei($ticket){
+		$ticket = urlencode($ticket['ticket']);
+		$url = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$ticket;
+		$file = $this->downfile($url);
+		$path = '/resources/download/erweima';
+		$fpath = ROOT.$path;
+		$name = $this->randStr(8).'.jpg';
+		$filename = ROOT.$path.'/'.$name;
+		if(is_dir($fpath)||mkdir($fpath,0777,true)){
+			$this->savefile($filename,$file['body']);
+			$patt = "/(?=resources).+$/";
+			preg_match_all($patt, $filename, $res);
+			return "/" . $res[0][0];
+		}
+		return false;
 	}
 }
 

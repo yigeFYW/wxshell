@@ -1,6 +1,6 @@
 <?php 
 
-require('../lib/init.php');
+require('../../library/init.php');
 $wx = new Weixin();
 $a = '{
 	"button":[

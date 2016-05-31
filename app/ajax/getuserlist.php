@@ -5,9 +5,12 @@
  * Date: 2016/4/21
  * Time: 19:24
  */
-require ('../lib/init.php');
+require ('../../library/init.php');
 $wx = new Weixin();
+//echo $wx->access_token;
 $userList = $wx->get_user_list();
+
+//print_r($userList);exit();
 $num = $userList['total'];
 find($userList);
 //判断是否已拉取完成
@@ -36,7 +39,7 @@ function find($userList){
         if (!in_array($v, $row)) {
             //如果不存在就调用getinfo方法
             $userinfo = $wx->get_user_info($v);
-            $data = array('openid' => $userinfo['openid'], 'nickname' => $userinfo['nickname'], 'sex' => $userinfo['sex'], 'province' => $userinfo['province'], 'city' => $userinfo['city'], 'country' => $userinfo['country'], 'sub_time' => $userinfo['subscribe_time'], 'headimgurl' => "hhsblog.cn" . $wx->down_headimg($userinfo['headimgurl']));
+            $data = array('openid' => $userinfo['openid'], 'nickname' => $userinfo['nickname'], 'sex' => $userinfo['sex'], 'province' => $userinfo['province'], 'city' => $userinfo['city'], 'country' => $userinfo['country'], 'sub_time' => $userinfo['subscribe_time'], 'headimgurl' =>$userinfo['headimgurl']);
             $mysql->Exec("WX_up_user", $data);
         }
     }

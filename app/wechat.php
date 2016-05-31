@@ -153,6 +153,7 @@ class wechatCallbackapiTest{
         switch($keyword){
             case '笑话':
                 include(ROOT."/functions/joke.php");
+                new Weixin();
                 $result = $this->sendText($object,joke());
                 break;
             case "测试":
@@ -362,5 +363,18 @@ class wechatCallbackapiTest{
         return $result;
     }
 
+    //转发到客服
+    public function customer($object,$cus){
+        $textcus = "<xml>
+        <ToUserName><![CDATA[%s]]></ToUserName>
+        <FromUserName><![CDATA[%s]]></FromUserName>
+        <CreateTime>%s</CreateTime>
+        <MsgType><![CDATA[transfer_customer_service]]></MsgType>
+        <TransInfo>
+            <KfAccount><![CDATA[%s]]></KfAccount>
+        </TransInfo>
+        </xml>";
+        $result = sprintf($textcus,$object->FromUserName, $object->ToUserName, time(),$cus);
+    }
 }
 ?>
