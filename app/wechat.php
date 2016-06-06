@@ -89,40 +89,45 @@ class wechatCallbackapiTest{
         $content = "";//定义传入信息为空
         switch ($object->Event){
             case 'subscribe':
-                $wx = new Weixin();
                 //用户关注执行
-//                $wx = new Weixin();
-//                $mysql = new Mysql();
-//                $arr = $wx->get_user_info($object->FromUserName);//调用接口查询用户详细信息
-//                $content = "亲爱的".$arr[nickname]."!\n我们已将您的信息电邮至中南海!^_^更多精彩请继续关注!\n点击进入博客系统!";
-//                $send = array( 0=>array('Title'=>'欢迎您的关注!','Description'=>$content,'PicUrl'=>"http://hhsblog.cn/images/index.png",'Url'=>'http://hhsblog.cn?openid='.$object->FromUserName));
-//                $result = $this->sendNews($object,$send);
-//                //将用户信息存入数据库
-//                //判断是否有此人  有的话将Y_N改为1
-//                if($mysql->getOne("select count(*) from WX_up_user where openid='".$object->FromUserName."'")){
-//                    $data = array('Y_N'=>1,'sub_time'=>time(),'headimgurl'=>"hhsblog.cn".$wx->down_headimg($arr['headimgurl']));
-//                    $mysql->Exec('WX_up_user',$data,'update',"openid='".$object->FromUserName."'");
-//                }else{
-//                    $data = array('openid'=>$arr['openid'],'nickname'=>$arr['nickname'],'sex'=>$arr['sex'],'province'=>$arr['province'],'city'=>$arr['city'],'country'=>$arr['country'],'sub_time'=>time(),'headimgurl'=>"hhsblog.cn".$wx->down_headimg($arr['headimgurl']));
-//                    $mysql->Exec('WX_up_user',$data);
-//                }
+                $wx = new Weixin();
+                $mysql = new Mysql();
+                $arr = $wx->get_user_info($object->FromUserName);//调用接口查询用户详细信息
+                //将用户信息存入数据库
+                //判断是否有此人  有的话将Y_N改为1
+                if($mysql->getOne("select count(*) from WX_up_user where openid='".$object->FromUserName."'")){
+                    $data = array('Y_N'=>1,'sub_time'=>time(),'headimgurl'=>$arr['headimgurl']);
+                    $mysql->Exec('WX_up_user',$data,'update',"openid='".$object->FromUserName."'");
+                }else{
+                    $data = array('openid'=>$arr['openid'],'nickname'=>$arr['nickname'],'sex'=>$arr['sex'],'province'=>$arr['province'],'city'=>$arr['city'],'country'=>$arr['country'],'sub_time'=>time(),'headimgurl'=>$arr['headimgurl']);
+                    $mysql->Exec('WX_up_user',$data);
+                }
 
-
-                //发送邮件通知管理员!
-//			include(ROOT.'/app/mail.php');
-//			$sex = $arr['sex']==1?'男':'女';
-//			$con = "Hello:有人关注了您的微信公众号!\n昵称:".$arr[nickname]."\n常用地址:".$arr['country'].$arr['province'].$arr['city']."\n性别:".$sex."\n关注时间:".date('Y年m月d日 H:i:s');
-//			$to = "1015517471@qq.com";
-//			$title = $arr[nickname]."关注您的微信公众号了!";
-//				send_mail($to,$title,$con);
-                $send = "欢迎关注!";
+                if($object->EventKey){
+                    $key = ltrim($object->EventKey,'qrscene_');
+                    if($key == 1){
+                        $send = "欢迎银川的朋友";
+                    }else if($key ==2){
+                        $send = "欢迎北京的朋友";
+                    }
+                }
                 $result = $this->sendText($object,$send);
                 break;
             case 'unsubscribe':
                 //用户取消关注执行
-                /*$mysql = new Mysql();
+                $mysql = new Mysql();
                 $data = array('Y_N'=>0,'N_time'=>time());
-                $mysql->Exec('WX_up_user',$data,'update',"openid='".$object->FromUserName."'");*/
+                $mysql->Exec('WX_up_user',$data,'update',"openid='".$object->FromUserName."'");
+                break;
+            case 'SCAN':
+                $key = $object->EventKey;
+                if($key == 1){
+                    $send = "欢迎银川的朋友关注!";
+                }else{
+                    $send = "欢迎北京的朋友关注";
+                }
+
+                $result = $this->sendText($object,$send);
                 break;
         }
         //如果是菜单点击事件:
@@ -134,12 +139,13 @@ class wechatCallbackapiTest{
                     $res = question($keyword,$object->FromUserName);
                     $result = $this->sendText($object,$res);
                     break;
-                case "girl":
-                    $send = "相关功能正在开发中,敬请关注!";
-                    $result = $this->sendText($object,$send);
+                case "joke":
+                    include(ROOT."/functions/joke.php");
+                    new Weixin();
+                    $result = $this->sendText($object,joke());
                     break;
                 case "game":
-                    $send = array( 0=>array('Title'=>'加小球游戏','Description'=>'有点难!','PicUrl'=>'http://hhsblog.cn/bunengsi/icon.png','Url'=>'http://hhsblog.cn/bunengsi/index.html'),1=>array('Title'=>'查开房小游戏','Description'=>'经典好玩!用来整蛊好朋友不错哦!','PicUrl'=>'http://hhsblog.cn/ckf/ckf.png','Url'=>"http://hhsblog.cn/ckf/index.htm"));
+                    $send = array( 0=>array('Title'=>'加小球游戏','Description'=>'有点难!','PicUrl'=>'http://wx.hhsblog.cn/app/games/bunengsi/icon.png','Url'=>'http://wx.hhsblog.cn/app/games/bunengsi/index.html'),1=>array('Title'=>'查开房小游戏','Description'=>'经典好玩!用来整蛊好朋友不错哦!','PicUrl'=>'http://wx.hhsblog.cn/app/games/ckf/ckf.png','Url'=>"http://wx.hhsblog.cn/app/games/ckf/index.htm"));
                     $result = $this->sendNews($object,$send);
                     break;
             }
@@ -170,7 +176,7 @@ class wechatCallbackapiTest{
 
                 break;
             default:
-                $send = array( 0=>array('Title'=>'纯手工开发の公众号!','Description'=>"回复图片自动进行年龄检测！\n回复您的位置可得到当地天气情况!\n回复【笑话】得到一条笑话！\n回复【答题】进入一站到底系统！",'PicUrl'=>"http://hhsblog.cn/images/pinpai.png",'Url'=>'http://hhsblog.cn?openid='.$object->FromUserName));
+                $send = array( 0=>array('Title'=>'纯手工开发の公众号!','Description'=>"回复图片检测颜值！\n回复您的位置可得到当地天气情况!\n回复【笑话】得到一条笑话！\n回复【答题】进入一站到底系统！",'PicUrl'=>"http://wx.hhsblog.cn/public/images/pinpai.png",'Url'=>'http://wx.hhsblog.cn?openid='.$object->FromUserName));
                 $result = $this->sendNews($object,$send);
                 break;
         }
@@ -223,7 +229,7 @@ class wechatCallbackapiTest{
                     $mysql->Exec('WX_face',$data);
                 }
             }
-            $a = array( 0=>array('Title'=>'查看检测结果!','Description'=>'看看!','PicUrl'=>'http://hhsblog.cn/images/yz.png','Url'=>"http://hhsblog.cn/app/face.php?openid=".$object->FromUserName."&id=".$id));
+            $a = array( 0=>array('Title'=>'查看检测结果!','Description'=>'看看!','PicUrl'=>'http://wx.hhsblog.cn/public/images/yz.png','Url'=>"http://wx.hhsblog.cn/app/face.php?openid=".$object->FromUserName."&id=".$id));
             $result = $this->sendNews($object,$a);
         }
         return $result;
@@ -375,6 +381,7 @@ class wechatCallbackapiTest{
         </TransInfo>
         </xml>";
         $result = sprintf($textcus,$object->FromUserName, $object->ToUserName, time(),$cus);
+        return $result;
     }
 }
 ?>

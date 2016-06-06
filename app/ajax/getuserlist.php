@@ -41,6 +41,8 @@ function find($userList){
             $userinfo = $wx->get_user_info($v);
             $data = array('openid' => $userinfo['openid'], 'nickname' => $userinfo['nickname'], 'sex' => $userinfo['sex'], 'province' => $userinfo['province'], 'city' => $userinfo['city'], 'country' => $userinfo['country'], 'sub_time' => $userinfo['subscribe_time'], 'headimgurl' =>$userinfo['headimgurl']);
             $mysql->Exec("WX_up_user", $data);
+            $data = array('openid'=>$userinfo['openid'],'nick'=>$userinfo['nickname'],'sex' => $userinfo['sex'],'address'=>$userinfo['country'].$userinfo['province'].$userinfo['city'],'headimg' =>$userinfo['headimgurl']);
+            $mysql->Exec("user",$data);
         }
     }
 }
