@@ -95,12 +95,12 @@ class wechatCallbackapiTest{
                 $arr = $wx->get_user_info($object->FromUserName);//调用接口查询用户详细信息
                 //将用户信息存入数据库
                 //判断是否有此人  有的话将Y_N改为1
-                if($mysql->getOne("select count(*) from WX_up_user where openid='".$object->FromUserName."'")){
+                if($mysql->getOne("select count(*) from wx_up_user where openid='".$object->FromUserName."'")){
                     $data = array('Y_N'=>1,'sub_time'=>time(),'headimgurl'=>$arr['headimgurl']);
-                    $mysql->Exec('WX_up_user',$data,'update',"openid='".$object->FromUserName."'");
+                    $mysql->Exec('wx_up_user',$data,'update',"openid='".$object->FromUserName."'");
                 }else{
                     $data = array('openid'=>$arr['openid'],'nickname'=>$arr['nickname'],'sex'=>$arr['sex'],'province'=>$arr['province'],'city'=>$arr['city'],'country'=>$arr['country'],'sub_time'=>time(),'headimgurl'=>$arr['headimgurl']);
-                    $mysql->Exec('WX_up_user',$data);
+                    $mysql->Exec('wx_up_user',$data);
                 }
 
                 if($object->EventKey){
@@ -117,7 +117,7 @@ class wechatCallbackapiTest{
                 //用户取消关注执行
                 $mysql = new Mysql();
                 $data = array('Y_N'=>0,'N_time'=>time());
-                $mysql->Exec('WX_up_user',$data,'update',"openid='".$object->FromUserName."'");
+                $mysql->Exec('wx_up_user',$data,'update',"openid='".$object->FromUserName."'");
                 break;
             case 'SCAN':
                 $key = $object->EventKey;
@@ -148,6 +148,11 @@ class wechatCallbackapiTest{
                     $send = array( 0=>array('Title'=>'加小球游戏','Description'=>'有点难!','PicUrl'=>'http://wx.hhsblog.cn/app/games/bunengsi/icon.png','Url'=>'http://wx.hhsblog.cn/app/games/bunengsi/index.html'),1=>array('Title'=>'查开房小游戏','Description'=>'经典好玩!用来整蛊好朋友不错哦!','PicUrl'=>'http://wx.hhsblog.cn/app/games/ckf/ckf.png','Url'=>"http://wx.hhsblog.cn/app/games/ckf/index.htm"));
                     $result = $this->sendNews($object,$send);
                     break;
+		case "luyin":
+	
+    	   	    $content = array( 0=>array('Title'=>'时尚录音机','Description'=>'','PicUrl'=>'','Url'=>'http://wx.hhsblog.cn/app/jssdk.php')); 
+		    $result = $this->sendNews($object,$content);
+		    break;	
             }
         }
         return $result;//将传出信息向上传递
@@ -198,7 +203,7 @@ class wechatCallbackapiTest{
         $label = $object->Label;
         //存储用户地址信息
         $data = array('openid'=>$openid,'LocationX'=>$wd,'LocationY'=>$jd,'label'=>$label,'time'=>time());
-        $mysql->Exec('WX_user_location',$data);
+        $mysql->Exec('wx_user_location',$data);
         $content = array('jd'=>$jd,'wd'=>$wd);
         $result = $this->sendText($object,$content);
         return $result;
@@ -211,7 +216,7 @@ class wechatCallbackapiTest{
         $mysql = new Mysql();
         $filename = $wx->down_media($object->MediaId);
         $data = array('openid'=>$object->FromUserName,'pathname'=>$filename,'media_id'=>$object->MediaId,'type'=>'.jpg','time'=>time());
-        $mysql->Exec('WX_download_file',$data);
+        $mysql->Exec('wx_download_file',$data);
         include(ROOT.'/functions/face.php');
         $ren = face($object->PicUrl);
         if(is_string($ren)){
@@ -221,12 +226,12 @@ class wechatCallbackapiTest{
             if((count($ren) == 3) && (count($ren[2]) ==2) ){
                 for($i=0;$i<2;$i++){
                     $data = array('id'=>$id,'openid'=>$object->FromUserName,'pathname'=>$filename,'media_id'=>$object->MediaId,'time'=>time(),'race'=>$ren[$i]['race'],'gender'=>$ren[$i]['gender'],'age'=>$ren[$i]['age'],'glass'=>$ren[$i]['glass'],'smiling'=>$ren[$i]['smiling'],'yanzhi'=>$ren[$i]['yanzhi'],'py'=>$ren[2]['py'],'xs'=>$ren[2]['xs']);
-                    $mysql->Exec('WX_face',$data);
+                    $mysql->Exec('wx_face',$data);
                 }
             }else{
                 for($i=0;$i<count($ren);$i++){
                     $data = array('id'=>$id,'openid'=>$object->FromUserName,'pathname'=>$filename,'media_id'=>$object->MediaId,'time'=>time(),'race'=>$ren[$i]['race'],'gender'=>$ren[$i]['gender'],'age'=>$ren[$i]['age'],'glass'=>$ren[$i]['glass'],'smiling'=>$ren[$i]['smiling'],'yanzhi'=>$ren[$i]['yanzhi']);
-                    $mysql->Exec('WX_face',$data);
+                    $mysql->Exec('wx_face',$data);
                 }
             }
             $a = array( 0=>array('Title'=>'查看检测结果!','Description'=>'看看!','PicUrl'=>'http://wx.hhsblog.cn/public/images/yz.png','Url'=>"http://wx.hhsblog.cn/app/face.php?openid=".$object->FromUserName."&id=".$id));
