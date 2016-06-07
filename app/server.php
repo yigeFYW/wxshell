@@ -1,6 +1,6 @@
 <?php 
 
-require('../lib/init.php');
+require('../library/init.php');
 if(isset($_GET['numup'])){
 	$mysql = new Mysql();
 	$id = $_GET['id'];

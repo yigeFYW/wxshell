@@ -2,7 +2,7 @@
 header('content-type:text/html;charset=utf8');
 define('ROOT',dirname(__DIR__));
 require(ROOT.'/config.php');
-//require(ROOT.'/library/error.class.php');
+require(ROOT.'/library/error.class.php');
 require(ROOT.'/library/Weixin.class.php');
 require(ROOT.'/library/Mysql.class.php');
 require(ROOT.'/library/JSSDK.class.php');

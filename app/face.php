@@ -1,5 +1,5 @@
 <?php 
-require("../lib/init.php");
+require("../library/init.php");
 $mysql = new Mysql();
 if( (!isset($_GET['openid'])) || (!isset($_GET['id']))){
 	header("Location:http://hhsblog.cn/index.html");
