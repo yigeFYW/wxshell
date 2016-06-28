@@ -30,7 +30,7 @@ function find($userList){
     $for = array();
     $mysql = new Mysql();
     $wx = new Weixin();
-    $for = $mysql->getAll("select openid from WX_up_user");
+    $for = $mysql->getAll("select openid from wx_up_user");
     $row = array();
     foreach($for as $v){
         $row[] = $v['openid'];
@@ -40,7 +40,7 @@ function find($userList){
             //如果不存在就调用getinfo方法
             $userinfo = $wx->get_user_info($v);
             $data = array('openid' => $userinfo['openid'], 'nickname' => $userinfo['nickname'], 'sex' => $userinfo['sex'], 'province' => $userinfo['province'], 'city' => $userinfo['city'], 'country' => $userinfo['country'], 'sub_time' => $userinfo['subscribe_time'], 'headimgurl' =>$userinfo['headimgurl']);
-            $mysql->Exec("WX_up_user", $data);
+            $mysql->Exec("wx_up_user", $data);
             $data = array('openid'=>$userinfo['openid'],'nick'=>$userinfo['nickname'],'sex' => $userinfo['sex'],'address'=>$userinfo['country'].$userinfo['province'].$userinfo['city'],'headimg' =>$userinfo['headimgurl']);
             $mysql->Exec("user",$data);
         }

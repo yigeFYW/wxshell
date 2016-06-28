@@ -7,8 +7,8 @@ if( (!isset($_GET['openid'])) || (!isset($_GET['id']))){
 //有GET数据时判断是否在数据库中存在
 $openid = $_GET['openid'];
 $id = $_GET['id'];
-$sql = "select * from WX_face where openid='".$openid."' and id=".$id.";";
-$sql1 = "select nickname from WX_up_user where openid='".$openid."';";
+$sql = "select * from wx_face where openid='".$openid."' and id=".$id.";";
+$sql1 = "select nickname from wx_up_user where openid='".$openid."';";
 $facelist = $mysql->getAll($sql);//脸部信息
 $nickname = $mysql->getOne($sql1);//昵称
 $double = false;

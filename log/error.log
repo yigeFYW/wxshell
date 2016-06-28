@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2016-06-06 15:33:55
 错误级别:8--文件:D:\xampp\htdocs\wechat\app\wechat.php--第43行!
 错误信息:Undefined index: HTTP_RAW_POST_DATA
@@ -5,4 +6,420 @@
 2016-06-06 15:33:55
 错误级别:--文件:--第行!
 错误信息:
+
+2016-06-06 16:02:15
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第43行!
+错误信息:Undefined index: HTTP_RAW_POST_DATA
+
+2016-06-06 16:02:15
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-06 16:03:00
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第43行!
+错误信息:Undefined index: HTTP_RAW_POST_DATA
+
+2016-06-06 16:03:00
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-06 16:04:38
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:04:40
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第43行!
+错误信息:Undefined index: HTTP_RAW_POST_DATA
+
+2016-06-06 16:04:40
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-06 16:04:40
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第43行!
+错误信息:Undefined index: HTTP_RAW_POST_DATA
+
+2016-06-06 16:04:40
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-06 16:05:23
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:05:28
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第153行!
+错误信息:Undefined variable: result
+
+2016-06-06 16:05:28
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:05:29
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:05:32
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:05:44
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第153行!
+错误信息:Undefined variable: result
+
+2016-06-06 16:05:44
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:05:53
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:09:56
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第153行!
+错误信息:Undefined variable: result
+
+2016-06-06 16:09:56
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/init.php--第2行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:10:03
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/init.php--第2行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:10:06
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/init.php--第2行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:12:30
+错误级别:2--文件:/usr/local/nginx/html/wechat/app/face.php--第30行!
+错误信息:Invalid argument supplied for foreach()
+
+2016-06-06 16:12:30
+错误级别:2--文件:/usr/local/nginx/html/wechat/app/face.html--第59行!
+错误信息:Invalid argument supplied for foreach()
+
+2016-06-06 16:12:30
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-06 16:22:35
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第153行!
+错误信息:Undefined variable: result
+
+2016-06-06 16:22:35
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/init.php--第2行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:22:46
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/init.php--第2行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:22:52
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/init.php--第2行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:22:59
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/init.php--第2行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:29:03
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第153行!
+错误信息:Undefined variable: result
+
+2016-06-06 16:29:03
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/init.php--第2行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:29:14
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/init.php--第2行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:29:18
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/init.php--第2行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:30:51
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第153行!
+错误信息:Undefined variable: result
+
+2016-06-06 16:30:51
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:31:05
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:31:12
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:31:18
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:31:22
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:31:27
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第153行!
+错误信息:Undefined variable: result
+
+2016-06-06 16:31:27
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:31:27
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:40:59
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第153行!
+错误信息:Undefined variable: result
+
+2016-06-06 16:40:59
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:41:22
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:43:09
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:43:10
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 16:46:03
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 17:29:19
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-06 17:29:22
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第31行!
+错误信息:fopen(/usr/local/nginx/html/wechat/json/access_token.json): failed to open stream: Permission denied
+
+2016-06-06 17:29:22
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第32行!
+错误信息:fwrite() expects parameter 1 to be resource, boolean given
+
+2016-06-06 17:29:22
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第33行!
+错误信息:fclose() expects parameter 1 to be resource, boolean given
+
+2016-06-06 17:29:22
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/JSSDK.class.php--第53行!
+错误信息:fopen(/usr/local/nginx/html/wechat/json/jsapi_ticket.json): failed to open stream: Permission denied
+
+2016-06-06 17:29:22
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/JSSDK.class.php--第54行!
+错误信息:fwrite() expects parameter 1 to be resource, boolean given
+
+2016-06-06 17:29:22
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/JSSDK.class.php--第55行!
+错误信息:fclose() expects parameter 1 to be resource, boolean given
+
+2016-06-06 17:29:22
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-07 09:04:55
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 09:05:00
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第31行!
+错误信息:fopen(/usr/local/nginx/html/wechat/json/access_token.json): failed to open stream: Permission denied
+
+2016-06-07 09:05:00
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第32行!
+错误信息:fwrite() expects parameter 1 to be resource, boolean given
+
+2016-06-07 09:05:00
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第33行!
+错误信息:fclose() expects parameter 1 to be resource, boolean given
+
+2016-06-07 09:05:00
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/JSSDK.class.php--第53行!
+错误信息:fopen(/usr/local/nginx/html/wechat/json/jsapi_ticket.json): failed to open stream: Permission denied
+
+2016-06-07 09:05:00
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/JSSDK.class.php--第54行!
+错误信息:fwrite() expects parameter 1 to be resource, boolean given
+
+2016-06-07 09:05:00
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/JSSDK.class.php--第55行!
+错误信息:fclose() expects parameter 1 to be resource, boolean given
+
+2016-06-07 09:05:00
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-07 09:05:55
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:22:29
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第43行!
+错误信息:Undefined index: HTTP_RAW_POST_DATA
+
+2016-06-07 11:22:29
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-07 11:22:32
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第43行!
+错误信息:Undefined index: HTTP_RAW_POST_DATA
+
+2016-06-07 11:22:32
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-07 11:22:47
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第43行!
+错误信息:Undefined index: HTTP_RAW_POST_DATA
+
+2016-06-07 11:22:47
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-07 11:22:52
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第43行!
+错误信息:Undefined index: HTTP_RAW_POST_DATA
+
+2016-06-07 11:22:52
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-07 11:23:02
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第43行!
+错误信息:Undefined index: HTTP_RAW_POST_DATA
+
+2016-06-07 11:23:02
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-07 11:26:44
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:26:48
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:26:53
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第158行!
+错误信息:Undefined variable: result
+
+2016-06-07 11:26:53
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:26:53
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:26:56
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:27:01
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第31行!
+错误信息:fopen(/usr/local/nginx/html/wechat/json/access_token.json): failed to open stream: Permission denied
+
+2016-06-07 11:27:01
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第32行!
+错误信息:fwrite() expects parameter 1 to be resource, boolean given
+
+2016-06-07 11:27:01
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第33行!
+错误信息:fclose() expects parameter 1 to be resource, boolean given
+
+2016-06-07 11:27:01
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:27:13
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第158行!
+错误信息:Undefined variable: result
+
+2016-06-07 11:27:13
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:27:14
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第31行!
+错误信息:fopen(/usr/local/nginx/html/wechat/json/access_token.json): failed to open stream: Permission denied
+
+2016-06-07 11:27:14
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第32行!
+错误信息:fwrite() expects parameter 1 to be resource, boolean given
+
+2016-06-07 11:27:14
+错误级别:2--文件:/usr/local/nginx/html/wechat/library/Weixin.class.php--第33行!
+错误信息:fclose() expects parameter 1 to be resource, boolean given
+
+2016-06-07 11:27:18
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:27:23
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-07 11:29:17
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-07 11:29:22
+错误级别:--文件:--第行!
+错误信息:
+
+2016-06-07 11:49:33
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第158行!
+错误信息:Undefined variable: result
+
+2016-06-07 11:49:33
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:49:36
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第158行!
+错误信息:Undefined variable: result
+
+2016-06-07 11:49:36
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 11:49:39
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第158行!
+错误信息:Undefined variable: result
+
+2016-06-07 11:49:39
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 12:00:55
+错误级别:8--文件:/usr/local/nginx/html/wechat/app/wechat.php--第158行!
+错误信息:Undefined variable: result
+
+2016-06-07 12:00:55
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 12:01:07
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
+
+2016-06-07 12:01:10
+错误级别:2--文件:Unknown--第0行!
+错误信息:Cannot modify header information - headers already sent
 
