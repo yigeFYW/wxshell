@@ -110,6 +110,8 @@ class wechatCallbackapiTest{
                     }else if($key ==2){
                         $send = "欢迎北京的朋友";
                     }
+                }else{
+                    
                 }
                 $result = $this->sendText($object,$send);
                 break;
