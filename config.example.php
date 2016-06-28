@@ -9,4 +9,11 @@ define('MYID','');//填入微信appID
 define('MYSECRET','');//填入微信secret
 define("TOKEN", "weixin");//填入微信TOKEN
 
+
+//微信支付 配置文件
+define('APPKEY',"");//paysign key
+define('SIGNTYPE',"sha1");//加密方法
+define('PARTNERKEY',"");//通用密钥
+define('APPSERCERT',"");
+
 ?>
